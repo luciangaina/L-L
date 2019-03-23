@@ -343,6 +343,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  crouched: 0
+  maxSlideTime: 1.5
 --- !u!95 &1711315826
 Animator:
   serializedVersion: 3
