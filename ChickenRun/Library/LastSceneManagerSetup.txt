@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/chickenrun_animations_created.unity
+- path: Assets/Scenes/chickenrun_background.unity
   isLoaded: 1
   isActive: 1
