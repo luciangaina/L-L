@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator myAnimator;
 
+    public GameManager theGameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,5 +111,13 @@ public class PlayerController : MonoBehaviour
 
         myAnimator.SetFloat("Speed", myRigidbody.velocity.x);
         myAnimator.SetBool("Grounded", grounded);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag=="killbox")
+        {
+            theGameManager.EndGame();
+        }
     }
 }

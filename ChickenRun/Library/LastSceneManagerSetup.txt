@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/chickenrun_speeding_up&ground_detection+.unity
+- path: Assets/Scenes/chickenrun_death.unity
   isLoaded: 1
   isActive: 1
