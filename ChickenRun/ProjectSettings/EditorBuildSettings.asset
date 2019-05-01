@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/chickenrun_platform_height&jump+.unity
+    guid: 91801957a5d8fc94e96e333b27bc8de5
   m_configObjects: {}

@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
+    public float speedMultiplier;
+
+    public float speedIncreaseMilestone;
+    private float speedMilestoneCount;
+
     public float jumpForce;
 
     public float jumpTime;
@@ -14,12 +19,14 @@ public class PlayerController : MonoBehaviour
 
     public bool grounded;
     public LayerMask whatIsGround;
+    public Transform groundCheck;
+    public float groundCheckRadius;
 
     public bool crouched = false;
     private float crouchTimer = 0f;
     public float maxCrouchTime = 0.5f;
 
-    private Collider2D myCollider;
+    //private Collider2D myCollider;
 
     private Animator myAnimator;
 
@@ -28,17 +35,30 @@ public class PlayerController : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
 
-        myCollider = GetComponent<Collider2D>();
+        //myCollider = GetComponent<Collider2D>();
 
         myAnimator = GetComponent<Animator>();
 
         jumpTimeCounter = jumpTime;
+
+        speedMilestoneCount = speedIncreaseMilestone;
     }
 
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics2D.IsTouchingLayers(myCollider, whatIsGround);
+        //grounded = Physics2D.IsTouchingLayers(myCollider, whatIsGround);
+
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+
+        if(transform.position.x > speedMilestoneCount)
+        {
+            speedMilestoneCount += speedIncreaseMilestone;
+
+            speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier;
+
+            moveSpeed = moveSpeed * speedMultiplier;
+        }
 
         myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y); //run
 
@@ -52,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKey(KeyCode.W))
         {
-            if(jumpTimeCounter>0)
+            if(jumpTimeCounter > 0)
             {
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
