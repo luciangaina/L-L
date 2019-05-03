@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/chickenrun_score&highscore.unity
+- path: Assets/Scenes/chickenrun_seed_collect.unity
   isLoaded: 1
   isActive: 1
