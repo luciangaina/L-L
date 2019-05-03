@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public PlayerController thePlayer;
     private Vector3 playerStartPoint;
 
+    private ScoreManager theScoreManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
         platformStartPoint = platformGenerator.position;
         playerStartPoint = thePlayer.transform.position;
         */
+
+        theScoreManager = FindObjectOfType<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -28,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        theScoreManager.scoreIncreasing = false;
         thePlayer.gameObject.SetActive(false);
     }
 }

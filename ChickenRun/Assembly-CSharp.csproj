@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\PlatformDestroyer.cs" />
     <Compile Include="Assets\Scripts\PlatformGenerator.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\ScrollScript.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/unity/ChickenRun/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
