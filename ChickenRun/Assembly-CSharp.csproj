@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\ScrollScript.cs" />
+    <Compile Include="Assets\Scripts\SeedGenerator.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/unity/ChickenRun/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

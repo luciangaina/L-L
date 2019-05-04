@@ -25,6 +25,9 @@ public class PlatformGenerator : MonoBehaviour
     private float heightChange;
     public Transform maxHeightPoint;
 
+    private SeedGenerator theSeedGenerator;
+    public float randomSeedThreshold;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,8 @@ public class PlatformGenerator : MonoBehaviour
 
         minHeight = transform.position.y;
         maxHeight = maxHeightPoint.position.y;
+
+        theSeedGenerator = FindObjectOfType<SeedGenerator>();
     }
 
     // Update is called once per frame
@@ -70,8 +75,12 @@ public class PlatformGenerator : MonoBehaviour
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);
 
-            transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2), transform.position.y, transform.position.z);
+            if (Random.Range(0f, 100f) < randomSeedThreshold)
+            {
+                theSeedGenerator.SpawnSeeds(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+            }
 
+            transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2), transform.position.y, transform.position.z);
         }
     }
 }
