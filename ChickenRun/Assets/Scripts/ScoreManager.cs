@@ -15,9 +15,12 @@ public class ScoreManager : MonoBehaviour
 
     public bool scoreIncreasing;
 
+    public bool shouldDouble;
+
     // Start is called before the first frame update
     void Start()
     {
+        shouldDouble = false;
         if(PlayerPrefs.HasKey("HighScore"))
         {
             hiScoreCount = PlayerPrefs.GetFloat("HighScore");
@@ -45,6 +48,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int pointsToAdd)
     {
-        scoreCount += pointsToAdd;
+        if(shouldDouble)
+            scoreCount += pointsToAdd * 2;
     }
 }

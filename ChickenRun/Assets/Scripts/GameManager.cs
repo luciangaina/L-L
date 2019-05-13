@@ -12,14 +12,13 @@ public class GameManager : MonoBehaviour
 
     private ScoreManager theScoreManager;
 
+    public DeathMenu deathScreen;
+
     // Start is called before the first frame update
     void Start()
     {
-        /*
-         * for restart
         platformStartPoint = platformGenerator.position;
         playerStartPoint = thePlayer.transform.position;
-        */
 
         theScoreManager = FindObjectOfType<ScoreManager>();
     }
@@ -34,5 +33,7 @@ public class GameManager : MonoBehaviour
     {
         theScoreManager.scoreIncreasing = false;
         thePlayer.gameObject.SetActive(false);
+
+        deathScreen.gameObject.SetActive(true);
     }
 }

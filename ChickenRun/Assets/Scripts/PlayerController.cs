@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float jumpTime;
     private float jumpTimeCounter;
 
+    private bool stoppedJumping;
+
     private Rigidbody2D myRigidbody;
 
     public bool grounded;
@@ -25,6 +27,9 @@ public class PlayerController : MonoBehaviour
     public bool crouched = false;
     private float crouchTimer = 0f;
     public float maxCrouchTime = 0.5f;
+
+    public AudioSource jumpSound;
+    public AudioSource deathSound;
 
     //private Collider2D myCollider;
 
@@ -44,6 +49,8 @@ public class PlayerController : MonoBehaviour
         jumpTimeCounter = jumpTime;
 
         speedMilestoneCount = speedIncreaseMilestone;
+
+        stoppedJumping = true;
     }
 
     // Update is called once per frame
@@ -68,11 +75,13 @@ public class PlayerController : MonoBehaviour
         {
             if (grounded)
             {
+                jumpSound.Play();
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce); //jump
+                stoppedJumping = false;
             }
         }
 
-        if(Input.GetKey(KeyCode.W))
+        if(Input.GetKey(KeyCode.W) && !stoppedJumping)
         {
             if(jumpTimeCounter > 0)
             {
@@ -84,6 +93,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.W))
         {
             jumpTimeCounter = 0;
+            stoppedJumping = true;
         }
 
         if(grounded)
@@ -117,6 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.tag=="killbox")
         {
+            deathSound.Play();
             theGameManager.EndGame();
         }
     }

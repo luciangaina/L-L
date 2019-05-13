@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/chickenrun_random_seeds.unity
+- path: Assets/Scenes/MainMenuCR.unity
   isLoaded: 1
   isActive: 1
