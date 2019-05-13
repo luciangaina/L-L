@@ -97,7 +97,7 @@ public class PlatformGenerator : MonoBehaviour
             //seeds
             if (Random.Range(0f, 100f) < randomSeedThreshold)
             {
-                theSeedGenerator.SpawnSeeds(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+                theSeedGenerator.SpawnSeeds(new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z));
             }
 
             //spikes

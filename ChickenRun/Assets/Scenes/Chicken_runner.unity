@@ -2146,7 +2146,7 @@ MonoBehaviour:
   maxHeightChange: 3
   maxHeightPoint: {fileID: 2075925019}
   randomSeedThreshold: 75
-  randomSpikeThreshold: 25
+  randomSpikeThreshold: 30
   spikePool: {fileID: 1531588914}
   powerupHeight: 0
   powerupThershold: 15
@@ -2711,7 +2711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb5b28dc7206474db303f38085c5211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 5.5
   speedMultiplier: 1.05
   speedIncreaseMilestone: 50
   jumpForce: 10
